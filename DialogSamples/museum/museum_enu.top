@@ -1,0 +1,13 @@
+topic: ~museum()
+language: enu
+
+include:lexicon_enu
+
+concept:(greetings) ["Hello there!" "Hi, let's talk a little together."]
+
+proposal: %start ~greetings ^rand["^gotoReactivate(museum)" "^gotoReactivate(nao)" "^gotoReactivate(games)"]
+
+proposal: %museum Do you want to talk about the exhibition?
+    u1:(~yes) 
+    u1:(~no) Ok, what about that. ^rand["^gotoReactivate(nao)" "^gotoReactivate(games)"]
+
