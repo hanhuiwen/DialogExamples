@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <package version="0.0.1" uuid="dialogsamples">
  <names>
-  <name lang="en_US">DialogSamples</name>
+  <name lang="en_US">Dialog Examples</name>
  </names>
  <supportedLanguages>
   <language>en_US</language>

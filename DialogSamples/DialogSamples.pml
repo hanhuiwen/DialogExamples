@@ -6,10 +6,12 @@
     </BehaviorDescriptions>
     <Dialogs>
         <Dialog name="museum" src="museum/museum.dlg" />
+        <Dialog name="game" src="game/game.dlg" />
     </Dialogs>
     <Resources />
     <Topics>
         <Topic name="museum_enu" src="museum/museum_enu.top" topicName="museum" language="en_US" />
+        <Topic name="game_enu" src="game/game_enu.top" topicName="game" language="en_US" />
     </Topics>
     <IgnoredPaths />
 </Package>

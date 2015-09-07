@@ -1,13 +1,29 @@
-topic: ~museum()
+topic: ~museum ^resetOnFocus ()
 language: enu
 
-include:lexicon_enu
+include:lexicon_enu.top
 
 concept:(greetings) ["Hello there!" "Hi, let's talk a little together."]
 
-proposal: %start ~greetings ^rand["^gotoReactivate(museum)" "^gotoReactivate(nao)" "^gotoReactivate(games)"]
+u:(in:onActivation) ~greetings ^goto(start)
+
+proposal: %start ^rand["^gotoReactivate(museum)" "^gotoReactivate(nao)" "^gotoReactivate(games)"]
 
 proposal: %museum Do you want to talk about the exhibition?
-    u1:(~yes) 
-    u1:(~no) Ok, what about that. ^rand["^gotoReactivate(nao)" "^gotoReactivate(games)"]
+    u1:(~yes) Great! ^gotoReactivate(museumIntro)
+    u1:(~no) Ok, what about that. ^rand["^gotoReactivate(nao)" "^topicTag(game, int)"]
+
+proposal: %nao Do you want to talk about me?
+    u1:(~yes) I knew it!
+    u1:(~no) Ok, what about that. ^rand["^gotoReactivate(museum)" "^gotoReactivate(games)"]
+    
+proposal: %games Do you want to play a quizz game?
+    u1:(~yes) Cool! ^topicTag(game, intro)
+    u1:(~no) Ok, what about that. ^rand["^gotoReactivate(museum)" "^gotoReactivate(nao)"]
+    
+proposal: %museumIntro Mudam museum is awesome! ^gotoReactivate(other)
+
+proposal: %other Do you want to keep on talking with me?
+    u1:(~yes) Ok. ^gotoReactivate(start)
+    u1:(~no) allright. Bye $onStopped=1
 
